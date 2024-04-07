@@ -22,9 +22,9 @@ class AuthController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        $user->apiKeys()->create([]);
+        $apiKey = $user->apiKeys()->create([]);
 
-        $user['api_keys'] = $user->apiKeys;
+        $user['api_keys'] = [$apiKey->id];
 
         return $user;
     }
