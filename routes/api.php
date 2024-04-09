@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApiKeyController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,6 @@ Route::post('/auth/register', [AuthController::class, 'createUser']);
 Route::post('/auth/login', [AuthController::class, 'login']);
 
 Route::get('/apikey/exists/{apikey}', [ApiKeyController::class, 'checkIfApiKeyExists']);
+
+Route::get('/users/me', [UserController::class, 'me'])->middleware('auth:sanctum');
 
