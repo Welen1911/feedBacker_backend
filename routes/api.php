@@ -20,3 +20,4 @@ Route::get('/apikey/exists/{apikey}', [ApiKeyController::class, 'checkIfApiKeyEx
 
 Route::get('/users/me', [UserController::class, 'me'])->middleware('auth:sanctum');
 
+Route::post('/users/me/apikey', [UserController::class, 'apikey'])->middleware('auth:sanctum');

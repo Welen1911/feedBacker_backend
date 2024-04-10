@@ -11,4 +11,10 @@ class UserController extends Controller
     public function me() {
         return auth()->user();
     }
+
+    public function apikey() {
+        $apikey = new ApiKeyController();
+
+        return response(['apikey' => $apikey->store()], 201);
+    }
 }
