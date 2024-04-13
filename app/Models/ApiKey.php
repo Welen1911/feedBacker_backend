@@ -18,7 +18,7 @@ class ApiKey extends Model
         return $this->belongsTo(User::class);
     }
 
-    // protected $hidden = [
-    //     'user_id',
-    // ];
+    protected $hidden = [
+        'user_id',
+    ];
 }
