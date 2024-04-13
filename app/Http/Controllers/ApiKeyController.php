@@ -61,4 +61,15 @@ class ApiKeyController extends Controller
 
         return response('', 404);
     }
+
+    public function getApiKeyForUser() {
+        $apikeys = ApiKey::where('user_id', auth()->user()->id)->get();
+        $array = [];
+
+        foreach ($apikeys as $apikey) {
+            $array[] = $apikey->id;
+        }
+
+        return $array;
+    }
 }

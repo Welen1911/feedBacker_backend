@@ -8,11 +8,18 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function me() {
-        return auth()->user();
+    public function me()
+    {
+        $user = auth()->user();
+        $apiKey = new ApiKeyController();
+
+        $user['apiKeys'] = $apiKey->getApiKeyForUser();
+
+        return $user;
     }
 
-    public function apikey() {
+    public function apikey()
+    {
         $apikey = new ApiKeyController();
 
         return response(['apikey' => $apikey->store()], 201);
