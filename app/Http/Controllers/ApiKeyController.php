@@ -20,6 +20,11 @@ class ApiKeyController extends Controller
      */
     public function store(Request $request = null)
     {
+        $user = auth()->user();
+        $oldApiKey = $user->apiKey;
+        if ($oldApiKey) {
+            ApiKey::destroy($oldApiKey->id);
+        }
         $apikey = ApiKey::create([
             'user_id' => auth()->user()->id,
         ]);
