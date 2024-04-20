@@ -29,7 +29,7 @@ class ApiKeyController extends Controller
             'user_id' => auth()->user()->id,
         ]);
 
-        return $apikey->id;
+        return $apikey;
     }
 
     /**

@@ -20,6 +20,6 @@ class UserController extends Controller
     {
         $apikey = new ApiKeyController();
 
-        return response(['apikey' => $apikey->store()], 201);
+        return response($apikey->store(), 201);
     }
 }
