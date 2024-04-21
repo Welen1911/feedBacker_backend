@@ -18,6 +18,10 @@ class ApiKey extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function feedBacks() {
+        return $this->hasMany(Feedback::class);
+    }
+
     protected $hidden = [
         'user_id',
     ];
