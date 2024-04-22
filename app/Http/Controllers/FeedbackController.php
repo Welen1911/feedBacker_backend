@@ -26,10 +26,10 @@ class FeedbackController extends Controller
         ->count();
 
         return response([
-            'ALL' => $all,
-            'OTHER' => $other,
-            'ISSUE' => $issue,
-            'IDEA' => $idea,
+            'all' => $all,
+            'other' => $other,
+            'issue' => $issue,
+            'idea' => $idea,
         ], 200);
     }
 
