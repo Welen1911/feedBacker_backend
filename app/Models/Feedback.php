@@ -10,7 +10,17 @@ class Feedback extends Model
 {
     use HasFactory, HasUuids;
 
-    public function apikey() {
+    protected $fillable = [
+        'type',
+        'text',
+        'fingerprint',
+        'api_key_id',
+        'device',
+        'page',
+    ];
+
+    public function apikey()
+    {
         return $this->belongsTo(ApiKey::class);
     }
 }

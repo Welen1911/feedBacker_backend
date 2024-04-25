@@ -54,7 +54,16 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $feedback = Feedback::create([
+            'type' => $request->type,
+            'text' => $request->text,
+            'fingerprint' => $request->fingerprint,
+            'api_key_id' => $request->apiKey,
+            'device' => $request->device,
+            'page' => $request->page,
+        ]);
+
+        return $feedback;
     }
 
     /**
