@@ -8,22 +8,23 @@ use Illuminate\Http\Request;
 class FeedbackController extends Controller
 {
 
-    public function summary() {
+    public function summary()
+    {
 
         $all = auth()->user()->apiKey->feedBacks
-        ->count();
+            ->count();
 
         $other = auth()->user()->apiKey->feedBacks
-        ->where('type', 'OTHER')
-        ->count();
+            ->where('type', 'OTHER')
+            ->count();
 
         $issue = auth()->user()->apiKey->feedBacks
-        ->where('type', 'ISSUE')
-        ->count();
+            ->where('type', 'ISSUE')
+            ->count();
 
         $idea = auth()->user()->apiKey->feedBacks
-        ->where('type', 'IDEA')
-        ->count();
+            ->where('type', 'IDEA')
+            ->count();
 
         return response([
             'all' => $all,
@@ -87,24 +88,9 @@ class FeedbackController extends Controller
      */
     public function update($apikey, $oldApiKey)
     {
-        // $feedbacks = Feedback::where('api_key_id', $oldApiKey->id)->get();
-        // $feedbacks = $oldApiKey->feedBacks;
-
-
         $oldApiKey->feedBacks()->update([
             'api_key_id' => $apikey->id,
         ]);
-
-
-        // dd($feedbacks);
-
-        // if ($feedbacks) {
-        //     foreach($feedbacks as $feedback) {
-        //         $feedback->update([
-        //             'api_key_id' => $apikey->id,
-        //         ]);
-        //     }
-        // }
     }
 
     /**
