@@ -85,9 +85,26 @@ class FeedbackController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Feedback $feedback)
+    public function update($apikey, $oldApiKey)
     {
-        //
+        // $feedbacks = Feedback::where('api_key_id', $oldApiKey->id)->get();
+        // $feedbacks = $oldApiKey->feedBacks;
+
+
+        $oldApiKey->feedBacks()->update([
+            'api_key_id' => $apikey->id,
+        ]);
+
+
+        // dd($feedbacks);
+
+        // if ($feedbacks) {
+        //     foreach($feedbacks as $feedback) {
+        //         $feedback->update([
+        //             'api_key_id' => $apikey->id,
+        //         ]);
+        //     }
+        // }
     }
 
     /**

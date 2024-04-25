@@ -22,9 +22,21 @@ class ApiKeyController extends Controller
     {
         $user = auth()->user();
         $oldApiKey = $user->apiKey;
+
         if ($oldApiKey) {
+
+            $apikey = ApiKey::create([
+                'user_id' => auth()->user()->id,
+            ]);
+
+            $feedbacks = new FeedbackController();
+            $feedbacks->update($apikey, $oldApiKey);
+
             ApiKey::destroy($oldApiKey->id);
+
+            return $apikey;
         }
+
         $apikey = ApiKey::create([
             'user_id' => auth()->user()->id,
         ]);
