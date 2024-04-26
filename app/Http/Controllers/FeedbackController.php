@@ -37,9 +37,18 @@ class FeedbackController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+
+        if ($request->type) {
+            $feedbacks = auth()->user()->apiKey->feedBacks()
+                ->where('type', $request->type)->get();
+
+            return $feedbacks;
+        }
+
+        $feedbacks = auth()->user()->apiKey->feedBacks;
+        return $feedbacks;
     }
 
     /**

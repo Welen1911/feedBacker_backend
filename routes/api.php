@@ -25,4 +25,6 @@ Route::post('/users/me/apikey', [UserController::class, 'apikey'])->middleware('
 
 Route::get('/feedbacks/summary', [FeedbackController::class, 'summary'])->middleware('auth:sanctum');
 
+Route::get('/feedbacks', [FeedbackController::class, 'index'])->middleware('auth:sanctum');
+
 Route::post('/feedbacks', [FeedbackController::class, 'store']);
