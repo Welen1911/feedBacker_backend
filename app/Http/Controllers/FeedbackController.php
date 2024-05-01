@@ -39,16 +39,32 @@ class FeedbackController extends Controller
      */
     public function index(Request $request)
     {
-
         if ($request->type) {
-            $feedbacks = auth()->user()->apiKey->feedBacks()
-                ->where('type', $request->type)->get();
+            $total = auth()->user()->apikey->feedBacks()
+                ->where('type', $request->type)->count();
 
-            return $feedbacks;
+            $feedbacks = auth()->user()->apiKey->feedBacks()
+                ->where('type', $request->type)->offset($request->offset)
+                ->limit($request->limit)->get();
+
+            return response(['data' => $feedbacks, 'pagination' => [
+                'offset' => $request->offset,
+                'limit' => $request->limit,
+                'total' => $total,
+            ]]);
         }
 
-        $feedbacks = auth()->user()->apiKey->feedBacks;
-        return $feedbacks;
+        $total = auth()->user()->apikey->feedBacks->count();
+
+        $feedbacks = auth()->user()->apiKey->feedBacks()
+            ->offset($request->offset)
+            ->limit($request->limit)->get();
+
+        return response(['data' => $feedbacks, 'pagination' => [
+            'offset' => $request->offset,
+            'limit' => $request->limit,
+            'total' => $total,
+        ]]);
     }
 
     /**
