@@ -9,12 +9,11 @@
 
 ## Sobre o projeto
 
-Esse projeto é a minha versão, feita em Laravel, do Backend do treinamento Vue 3, o original é feito em Node e você pode visitar-lo <a href="https://github.com/vuejs-br/treinamento-vue3-code/tree/master/backend">Clicando aqui</a>.
+Esse projeto é a minha versão, feita em Laravel, do Backend do treinamento Vue 3, o original é feito em Node e você pode visitar-lo <a href="https://github.com/vuejs-br/treinamento-vue3-code/tree/master/backend">Clicando aqui</a>. E com o que esse projeto conta ?
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- [Laravel Sanctum](https://laravel.com/docs/11.x/sanctum#main-content) para autentificalção da API.
+- Chaves primárias em [Uuid](https://laravel.com/docs/11.x/eloquent#uuid-and-ulid-keys).
+- Uso das camadas de [API](https://laravel.com/docs/11.x/eloquent-resources#main-content).
 - Database agnostic [schema migrations](https://laravel.com/docs/migrations).
 - [Robust background job processing](https://laravel.com/docs/queues).
 - [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
