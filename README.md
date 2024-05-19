@@ -14,9 +14,7 @@ Esse projeto é a minha versão, feita em Laravel, do Backend do treinamento Vue
 - [Laravel Sanctum](https://laravel.com/docs/11.x/sanctum#main-content) para autentificalção da API.
 - Chaves primárias em [Uuid](https://laravel.com/docs/11.x/eloquent#uuid-and-ulid-keys).
 - Uso das camadas de [API](https://laravel.com/docs/11.x/eloquent-resources#main-content).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Uso do padrão [MVC](https://laravel.com/).
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
