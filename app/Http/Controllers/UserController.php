@@ -11,7 +11,7 @@ class UserController extends Controller
     public function me()
     {
         $user = auth()->user();
-        $user->apikeys;
+        $user->apikey;
 
         return $user;
     }
@@ -20,6 +20,6 @@ class UserController extends Controller
     {
         $apikey = new ApiKeyController();
 
-        return response(['apikey' => $apikey->store()], 201);
+        return response($apikey->store(), 201);
     }
 }

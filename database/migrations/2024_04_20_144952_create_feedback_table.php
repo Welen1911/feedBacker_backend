@@ -11,10 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('api_keys', function (Blueprint $table) {
+        Schema::create('feedback', function (Blueprint $table) {
             $table->string('id')->unique();
-            $table->foreignUuid('user_id')->constrained('users')
+            $table->foreignUuid('api_key_id')->constrained('api_keys')
             ->cascadeOnUpdate()->cascadeOnDelete();
+            $table->string('fingerprint');
+            $table->text('text');
+            $table->enum('type', ['OTHER', 'ISSUE', 'IDEA']);
+            $table->string('device');
+            $table->string('page');
             $table->timestamps();
         });
     }
@@ -24,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('api_keys');
+        Schema::dropIfExists('feedback');
     }
 };

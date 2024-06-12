@@ -7,25 +7,47 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Sobre o projeto
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Esse projeto é a minha versão, feita em Laravel, do Backend do treinamento Vue 3, o original é feito em Node e você pode visitar-lo <a href="https://github.com/vuejs-br/treinamento-vue3-code/tree/master/backend">Clicando aqui</a>. E com o que esse projeto conta ?
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [Laravel Sanctum](https://laravel.com/docs/11.x/sanctum#main-content) para autentificalção da API.
+- Chaves primárias em [Uuid](https://laravel.com/docs/11.x/eloquent#uuid-and-ulid-keys).
+- Uso das camadas de [API](https://laravel.com/docs/11.x/eloquent-resources#main-content).
+- Uso do padrão [MVC](https://laravel.com/).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## Instalação do projeto
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Clone o repositório com o comando abaixo:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```
+git clone https://github.com/Welen1911/feedBacker_backend.git
+```
+
+Em seguida, rode esse:
+
+```
+composer install
+```
+
+Em seguida, rode esse para gerar a chave da aplicação:
+
+```
+php artisan key:generate
+```
+Em seguida, rode esse para criar o banco e as tabelas no seu MySQL/MariaDB:
+
+```
+php artisan migrate
+```
+*** Certifique-se que o seu banco de dados MySQL esteja funcionando ***
+
+Em seguida, rode esse para ligar o servidor que ficará disponivel em <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a>:
+
+```
+php artisan serve
+```
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 

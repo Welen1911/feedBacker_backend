@@ -26,7 +26,7 @@ class AuthController extends Controller
 
         $apiKey = new ApiKeyController();
 
-        $user['api_keys'] = [$apiKey->store()];
+        $user['apikey'] = $apiKey->store();
 
         return $user;
     }
