@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('feedback', function (Blueprint $table) {
-            $table->string('id')->unique();
+            $table->uuid('id')->primary();
+            // $table->string('id')->unique();
             $table->foreignUuid('api_key_id')->constrained('api_keys')
             ->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('fingerprint');
