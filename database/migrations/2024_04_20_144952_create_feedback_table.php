@@ -18,7 +18,7 @@ return new class extends Migration
             ->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('fingerprint');
             $table->text('text');
-            $table->enum('type', ['OTHER', 'ISSUE', 'IDEA']);
+            $table->string('type');
             $table->string('device');
             $table->string('page');
             $table->timestamps();

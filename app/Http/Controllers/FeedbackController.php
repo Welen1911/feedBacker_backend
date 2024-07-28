@@ -15,15 +15,15 @@ class FeedbackController extends Controller
             ->count();
 
         $other = auth()->user()->apiKey->feedBacks
-            ->where('type', 'OTHER')
+            ->where('type', 'other')
             ->count();
 
         $issue = auth()->user()->apiKey->feedBacks
-            ->where('type', 'ISSUE')
+            ->where('type', 'issue')
             ->count();
 
         $idea = auth()->user()->apiKey->feedBacks
-            ->where('type', 'IDEA')
+            ->where('type', 'idea')
             ->count();
 
         return response([
