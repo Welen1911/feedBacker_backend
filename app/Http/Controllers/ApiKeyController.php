@@ -68,8 +68,14 @@ class ApiKeyController extends Controller
         //
     }
 
-    public function checkIfApiKeyExists(string $apikey)
+    public function checkIfApiKeyExists(Request $request)
     {
+        $request->validate([
+            'apikey' => 'required|string',
+        ]);
+
+        $apikey = $request->input('apikey');
+
         $exists = ApiKey::find($apikey);
 
         if ($exists) {
